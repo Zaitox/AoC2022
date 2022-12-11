@@ -13,7 +13,6 @@ def init_mon():
     d =  math.lcm(*div)
     return mon
 
-print(f'd: {d}')
 def part(mo, rounds, worry):
     old,new=0,0
     for _ in range(rounds):
@@ -25,7 +24,7 @@ def part(mo, rounds, worry):
                 exec(m[1],globals(),loc)
                 new=loc['new']
                 if worry: new//=3
-                elif new > d: new = d + (new % d)
+                elif new > d: new = new % d
                 if new % m[2] == 0:
                     mo[m[3]][0].append(str(new))
                 else:
